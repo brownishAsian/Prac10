@@ -12,6 +12,13 @@ Inertia = int(input("> "))
 print("Enter the Length")
 Length = int(input("> "))
 
+Load = 2500 #lbs
+Elasticity = 30000000 # psi
+Inertia = 258 #in^4
+Length = 300 #in
+
+x = 60
+
 def Part1(W, x, l):
     Part_1 = W * x * (l - x)
     return Part_1
