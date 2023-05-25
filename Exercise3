@@ -1,0 +1,49 @@
+import matplotlib.pyplot as plot
+
+print("Enter the load")
+Load = int(input("> "))
+           
+print("Enter the elasticity")
+Elasticity = int(input("> "))
+           
+print("Enter the inertia")
+Inertia = int(input("> "))
+           
+print("Enter the Length")
+Length = int(input("> "))
+
+def Part1(W, x, l):
+    Part_1 = W * x * (l - x)
+    return Part_1
+
+def Part2(E, I, l):
+    Part_2 = 24 * E * l * I
+    return Part_2
+
+def Part3(x, l):
+    Part_3 = 12 + x * (l - x)
+    return Part_3
+
+def deflection(W, E, I, l, x):
+    degreeDef = (Part1(W, x, l) / Part2(E, I, l)) * Part3(x, l)
+    return degreeDef
+
+#----------------------------------------------#
+
+xFiveInc = list(range(0, Length, 5))
+#print(xFiveInc)
+
+deflectionValues = []
+
+for xValue in xFiveInc:
+    print(deflection(Load, Elasticity, Inertia, Length, xValue))
+    
+    deflectionValues.append(deflection(Load, Elasticity, Inertia, Length, xValue))
+
+plot.plot(xFiveInc, deflectionValues)
+plot.show()
+
+
+
+  
+
